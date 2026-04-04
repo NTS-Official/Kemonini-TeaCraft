@@ -2,8 +2,8 @@
 This is a place holder page.<br>
 There's still lots of jobs remained undone.
 # 作者的话
-本来这一个月是打算干点事情的，但是因为去游山玩水所以咕咕咕了。。。<br>
-我目前没啥时间干这个事情，算是新建了个文件夹然后丢在这里不管了。。。<br>
+本来3月份是打算干点事情的，但是因为去游山玩水所以咕咕咕了。。。<br>
+我目前没啥时间做完这模组，算是新建了个文件夹然后丢在这里不管了。。。<br>
 具体内容的制作得到高考完再进行。<br><br><br><br><br>
 无 vibe coding 成分，纯手工古法编程！（大嘘）
 <!-- TODO: adds introduction -->
