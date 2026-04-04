@@ -1,13 +1,5 @@
 {
   "itemGroup.kemono_teatime": "Kemonini TeaCraft",
 
-  "item.kemono_teatime.logo": "Logo Item",
-
-  "kemono_teatime.configuration.title": "Kemonini TeaCraft Configs",
-  "kemono_teatime.configuration.section.kemono_teatime.common.toml": "Kemonini TeaCraft Configs",
-  "kemono_teatime.configuration.section.kemono_teatime.common.toml.title": "Kemonini TeaCraft Configs",
-  "kemono_teatime.configuration.items": "Item List",
-  "kemono_teatime.configuration.logDirtBlock": "Log Dirt Block",
-  "kemono_teatime.configuration.magicNumberIntroduction": "Magic Number Text",
-  "kemono_teatime.configuration.magicNumber": "Magic Number"
+  "item.kemono_teatime.logo": "Logo Item"
 }
