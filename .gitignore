@@ -40,3 +40,6 @@ repo/
 !**/src/**/repo/
 .gitattributes
 .gitattributes
+/runs
+logofile.pdn
+/daemon

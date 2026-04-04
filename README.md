@@ -12,6 +12,6 @@ Welcome to NoTuring_Steve's Kemonini TeaCraft mod!<br><br>
 This mod added a bunch of cute foods, teas, various decorations and fantastic furnitures, which is fulfilled with KAWAII, allowing you to enjoy a vibrant day in Minecraft!
 # Statement
 The majority of contents added by this mod is from the game 'Kemono Teatime'.<br>
-PLEASE NOTE: All of us and contents we created are not affilitated with Studio Lalala or FURYU Corporation.<br><br>
+PLEASE NOTE: Studio Lalala and FURYU Corporation haven't support, advertise or take part in the development of this mod in any form, and this mod is not an official product of them. This mod is a fan-made project, and all the contents are created by the mod author and contributors.<br><br>
 All disturbtions, convergences and recreations of this mod must follow GNU AGPLv3 License.
 -->

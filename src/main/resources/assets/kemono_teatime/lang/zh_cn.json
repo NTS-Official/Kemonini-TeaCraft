@@ -1,0 +1,13 @@
+{
+  "itemGroup.kemono_teatime": "兽娘红茶馆",
+
+  "item.kemono_teatime.logo": "Logo物品",
+
+  "kemono_teatime.configuration.title": "兽娘红茶馆模组 - 配置",
+  "kemono_teatime.configuration.section.kemono_teatime.common.toml": "兽娘红茶馆模组 - 配置",
+  "kemono_teatime.configuration.section.kemono_teatime.common.toml.title": "兽娘红茶馆模组 - 配置",
+  "kemono_teatime.configuration.items": "物品列表",
+  "kemono_teatime.configuration.logDirtBlock": "原木土方块",
+  "kemono_teatime.configuration.magicNumberIntroduction": "魔法数字文本",
+  "kemono_teatime.configuration.magicNumber": "魔法数字"
+}

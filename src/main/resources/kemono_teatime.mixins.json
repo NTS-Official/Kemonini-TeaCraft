@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.nts.ktmod.mixin",
+  "package": "com.nts.kawaiimod.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [],
   "injectors": {

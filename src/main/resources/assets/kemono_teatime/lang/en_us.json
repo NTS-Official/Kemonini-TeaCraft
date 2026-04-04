@@ -1,7 +1,7 @@
 {
-  "itemGroup.kemono_teatime": "Example Mod Tab",
-  "block.kemono_teatime.example_block": "Example Block",
-  "item.kemono_teatime.example_item": "Example Item",
+  "itemGroup.kemono_teatime": "Kemonini TeaCraft",
+
+  "item.kemono_teatime.logo": "Logo Item",
 
   "kemono_teatime.configuration.title": "Kemonini TeaCraft Configs",
   "kemono_teatime.configuration.section.kemono_teatime.common.toml": "Kemonini TeaCraft Configs",

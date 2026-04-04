@@ -1,4 +1,4 @@
-package com.nts.ktmod;
+package com.nts.kawaiimod;
 
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
@@ -11,11 +11,11 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
-@Mod(value = KemoniniTeaCraft.MODID, dist = Dist.CLIENT)
+@Mod(value = KTTCraftMod.MODID, dist = Dist.CLIENT)
 // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-@EventBusSubscriber(modid = KemoniniTeaCraft.MODID, value = Dist.CLIENT)
-public class KemoniniTeaCraftClient {
-    public KemoniniTeaCraftClient(ModContainer container) {
+@EventBusSubscriber(modid = KTTCraftMod.MODID, value = Dist.CLIENT)
+public class KTTCraftModClient {
+    public KTTCraftModClient(ModContainer container) {
         // Allows NeoForge to create a config screen for this mod's configs.
         // The config screen is accessed by going to the Mods screen > clicking on your mod > clicking on config.
         // Do not forget to add translations for your config options to the en_us.json file.
@@ -25,7 +25,7 @@ public class KemoniniTeaCraftClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
         // Some client setup code
-        KemoniniTeaCraft.LOGGER.info("HELLO FROM CLIENT SETUP");
-        KemoniniTeaCraft.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        KTTCraftMod.LOGGER.info("HELLO FROM CLIENT SETUP");
+        KTTCraftMod.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
     }
 }
