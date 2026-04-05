@@ -1,6 +1,7 @@
 package com.nts.kawaiimod;
 
-import com.nts.kawaiimod.item.ItemRegistries;
+import com.nts.kawaiimod.sounds.KTTCraftSounds;
+import com.nts.kawaiimod.world.item.ItemRegistries;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -19,7 +20,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import static com.nts.kawaiimod.item.ItemRegistries.LOGO;
+import static com.nts.kawaiimod.world.item.ItemRegistries.OST;
 
 @Mod(KTTCraftMod.MODID)
 public class KTTCraftMod {
@@ -33,13 +34,14 @@ public class KTTCraftMod {
             CREATIVE_MODE_TABS.register("kttcmod_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.kemono_teatime"))
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> LOGO.get().getDefaultInstance())
-            .displayItems((parameters, output) -> {output.accept(LOGO.get());}).build());
+            .icon(() -> OST.get().getDefaultInstance())
+            .displayItems((parameters, output) -> {output.accept(OST.get());}).build());
 
     public KTTCraftMod(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
         CREATIVE_MODE_TABS.register(modEventBus);
         ItemRegistries.register(modEventBus);
+        KTTCraftSounds.SOUND_EVENTS.register(modEventBus);
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
         // 模组配置
