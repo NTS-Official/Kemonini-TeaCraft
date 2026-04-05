@@ -1,0 +1,9 @@
+{
+  "item.kemono_teatime.ost": "Kemono Teatime OST",
+  "item.kemono_teatime.ost_disc_1": "01 - A cup of happiness",
+  "item.kemono_teatime.ost_disc_1.desc": "Melodious Moments: Kemono Teatime OST - A cup of happiness",
+  "itemGroup.kemono_teatime.blocks": "Kemonini TeaCraft: Blocks",
+  "itemGroup.kemono_teatime.misc": "Kemonini TeaCraft: Miscs",
+  "logs.kemono_teatime.client": "YOU'RE USING THE EARLY ACCESS VERSION! THERE MAY HAVE SOME BUGS THAT COULD LEAD TO GAME CRASHES! PLEASE REPORT THEM TO THE DEVELOPER!",
+  "logs.kemono_teatime.server": "<infos to be filled here>"
+}
