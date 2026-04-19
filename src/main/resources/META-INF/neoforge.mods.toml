@@ -8,7 +8,7 @@ version="${mod_version}"
 displayName="${mod_name}" #mandatory
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
-updateJSONURL="https://github.com/Team-Astralisium/Kemonini-TeaCraft/blob/indev/updates.json" #optional
+updateJSONURL="https://raw.githubusercontent.com/Team-Astralisium/Kemonini-TeaCraft/indev/updates.json" #optional
 
 # A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL="https://team-astralisium.github.io/Kemonini-TeaCraft/"
