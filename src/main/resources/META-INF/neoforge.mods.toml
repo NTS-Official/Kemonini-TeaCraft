@@ -1,5 +1,5 @@
 license="${mod_license}"
-# issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/"
+issueTrackerURL="https://github.com/Team-Astralisium/Kemonini-TeaCraft/issues"
 [[mods]]
 modId="${mod_id}"
 version="${mod_version}"
@@ -8,19 +8,19 @@ version="${mod_version}"
 displayName="${mod_name}" #mandatory
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
-#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
+updateJSONURL="https://github.com/Team-Astralisium/Kemonini-TeaCraft/updates.json" #optional
 
 # A URL for the "homepage" for this mod, displayed in the mod UI
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
+displayURL="https://team-astralisium.github.io/Kemonini-TeaCraft/"
 
 # A file name (in the root of the mod JAR) containing a logo for display
-logoFile= "modlogo.png"
+logoFile="modlogo.png"
 
 # A text field displayed in the mod UI
-credits="Thanks to 'NoTuing_Steve', 'hiczp', 'keqing' and other contributors!" #optional
+credits="NoTuing_Steve, hiczp(which specifies for his Kotlin guidance), keqing and other contributors related to Team Astralisium!"
 
 # The authors of the mod, displayed in the mod UI.
-authors="Team Astralisium" #optional
+authors="Team Astralisium"
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
@@ -55,6 +55,12 @@ config="${mod_id}.mixins.json"
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
+[[dependencies.${mod_id}]]
+modId="kotlinforforge"
+type="required"
+versionRange="[6.0,)"
+ordering="NONE"
+side="BOTH"
 [[dependencies.${mod_id}]]
     modId="vital_herbs"
     type="optional"

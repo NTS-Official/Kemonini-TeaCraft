@@ -1,15 +1,20 @@
+// 现在包括 kotlin 插件
 plugins {
     id 'java-library'
+    id 'idea'
     id 'maven-publish'
     id 'net.neoforged.gradle.userdev' version '7.1.21'
+    id 'org.jetbrains.kotlin.jvm' version '2.3.20'
 }
 
 tasks.named('wrapper', Wrapper).configure {
-    // Define wrapper values here so as to not have to always do so when updating gradlew.properties.
-    // Switching this to Wrapper.DistributionType.ALL will download the full gradle sources that comes with
-    // documentation attached on cursor hover of gradle classes and methods. However, this comes with increased
-    // file size for Gradle. If you do switch this to ALL, run the Gradle wrapper task twice afterwards.
-    // (Verify by checking gradle/wrapper/gradle-wrapper.properties to see if distributionUrl now points to `-all`)
+    /*
+     Define wrapper values here so as to not have to always do so when updating gradlew.properties.
+    Switching this to Wrapper.DistributionType.ALL will download the full gradle sources that comes with
+    documentation attached on cursor hover of gradle classes and methods. However, this comes with increased
+    file size for Gradle. If you do switch this to ALL, run the Gradle wrapper task twice afterwards.
+    (Verify by checking gradle/wrapper/gradle-wrapper.properties to see if distributionUrl now points to `-all`)
+    */
     distributionType = Wrapper.DistributionType.BIN
 }
 
@@ -25,10 +30,14 @@ sourceSets.main.resources {
     exclude("src/generated/**/.cache") // datagen cache files
 }
 
+// 其它仓库
 repositories {
-    // Add here additional repositories if required by some of the dependencies below.
+    // Add KFF Maven repository
+    maven {
+        name = 'Kotlin for Forge'
+        url = 'https://thedarkcolour.github.io/KotlinForForge/'
+    }
 }
-
 base {
     archivesName = mod_id
 }
@@ -103,6 +112,8 @@ dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
     implementation 'org.jetbrains:annotations:15.0'
 
+    implementation("thedarkcolour:kotlinforforge-neoforge:6.2.0")
+
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
@@ -135,6 +146,7 @@ tasks.withType(ProcessResources).configureEach {
             minecraft_version      : minecraft_version,
             minecraft_version_range: minecraft_version_range,
             neo_version            : neo_version,
+            loader_version_range   : loader_version_range,
             mod_id                 : mod_id,
             mod_name               : mod_name,
             mod_license            : mod_license,

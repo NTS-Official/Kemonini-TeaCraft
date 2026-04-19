@@ -1,0 +1,10 @@
+{
+  "homepage": "https://team-astralisium.github.io/Kemonini-TeaCraft/",
+  "26.1": {
+    "0.2.0-alpha": "Moved to Kotlin for a better development experience."
+  },
+  "promos": {
+    "26.1-latest": "0.2.0-alpha",
+    "26.1-recommended": "0.2.0-alpha"
+  }
+}
