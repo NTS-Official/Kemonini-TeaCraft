@@ -1,50 +1,41 @@
 package com.nts.ktcmodkotlin.item
 
 import com.nts.ktcmodkotlin.KTCMod
-import com.nts.ktcmodkotlin.item.ItemRegistries.OST
-import com.nts.ktcmodkotlin.item.ItemRegistries.OST_DISC_1
 import net.minecraft.core.registries.Registries
 import net.minecraft.network.chat.Component
 import net.minecraft.world.item.CreativeModeTab
 import net.neoforged.bus.api.IEventBus
-import net.neoforged.neoforge.registries.*
+import net.neoforged.neoforge.registries.DeferredRegister
 import java.util.function.Supplier
 
 object CreativeModeTabs {
-    val CREATIVE_MODE_TABS: DeferredRegister<CreativeModeTab> =
-        DeferredRegister.create(Registries.CREATIVE_MODE_TAB, KTCMod.MODID)
-    val KTTCMOD_CREATIVE_TAB_1: DeferredHolder<CreativeModeTab, CreativeModeTab> =
-        CREATIVE_MODE_TABS.register(
-            "kttcmod_tab_1",
-            Supplier {
-                CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.kemono_teatime.misc"))
-                    .icon(Supplier { OST.get().defaultInstance })
-                    .displayItems { parameters: CreativeModeTab.ItemDisplayParameters?, output: CreativeModeTab.Output? ->
-                        output?.accept(OST.get())
-                        output?.accept(OST_DISC_1.get())
-                    }
-                    .build()
+    // 注册创造模式物品栏
+    @JvmStatic
+    val CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, KTCMod.MODID)
+    // 杂项
+    val KTCMOD_CREATIVE_TAB_1 = CREATIVE_MODE_TABS.register("ktcmod_tab_1", Supplier {
+        CreativeModeTab
+            .builder()
+            .title(Component.translatable("itemGroup.kemono_teatime.misc"))
+            .icon { ItemRegistries.OST.get().defaultInstance }
+            .displayItems { _, output ->
+                output.accept(ItemRegistries.OST.get())
+                ItemRegistries.DISCS.forEach { output.accept(it.get()) }
             }
-        )
-    val KTTCMOD_CREATIVE_TAB_2: DeferredHolder<CreativeModeTab, CreativeModeTab> =
-        CREATIVE_MODE_TABS.register(
-            "kttcmod_tab_2",
-            Supplier {
-                CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.kemono_teatime.blocks"))
-                    .withTabsBefore(KTTCMOD_CREATIVE_TAB_1.id) //.icon(() -> BISCUIT_CONT.get().getDefaultInstance())
-                    /*
-                    .displayItems((parameters, output) -> {
-                        output.accept(BISCUIT_CONT.get());
-                    })
-                    */
-                    .build()
-            }
-        )
+            .build()
+    })
+    // 方块
+    val KTCMOD_CREATIVE_TAB_2 = CREATIVE_MODE_TABS.register("ktcmod_tab_2", Supplier {
+        CreativeModeTab
+            .builder()
+            .title(Component.translatable("itemGroup.kemono_teatime.blocks"))
+            .icon { ItemRegistries.OST.get().defaultInstance }
+            .withTabsBefore(KTCMOD_CREATIVE_TAB_1.id)
+            .build()
+    })
 
     fun register(eventBus: IEventBus) {
         CREATIVE_MODE_TABS.register(eventBus)
-        KTCMod.LOGGER.info("Registering Creative Mode Tabs for " + KTCMod.MODID)
+        KTCMod.LOGGER.info("Generating Creative Mode Tabs for " + KTCMod.MODID + "...")
     }
 }

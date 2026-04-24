@@ -15,9 +15,10 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent
 import org.slf4j.Logger
 
 @Mod(KTCMod.MODID)
-open class KTCMod(modEventBus: IEventBus, modContainer: ModContainer) {
+class KTCMod(modEventBus: IEventBus, modContainer: ModContainer) {
     init {
         modEventBus.addListener { event: FMLCommonSetupEvent? -> this.commonSetup(event) }
+        modEventBus.addListener(KTCDataGenerator::gatherClientData)
         CreativeModeTabs.register(modEventBus)
         ItemRegistries.register(modEventBus)
         SoundEvents.register(modEventBus)
@@ -28,12 +29,12 @@ open class KTCMod(modEventBus: IEventBus, modContainer: ModContainer) {
     }
 
     // 客户端初始化
-    protected fun commonSetup(event: FMLCommonSetupEvent?) {
+    private fun commonSetup(event: FMLCommonSetupEvent?) {
         LOGGER.info("Kemonini Teacraft Mod initialized.")
     }
 
     @SubscribeEvent // 服务端事件总线
-    protected fun onServerStarting(event: ServerStartingEvent?) {
+    private fun onServerStarting(event: ServerStartingEvent?) {
     }
 
     companion object {
