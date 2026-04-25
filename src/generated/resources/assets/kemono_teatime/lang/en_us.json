@@ -1,4 +1,9 @@
 {
+  "item.kemono_teatime.advanced_toolkit": "Advanced Toolkit",
+  "item.kemono_teatime.beginner_toolkit": "Beginner's Toolkit",
+  "item.kemono_teatime.biscuit": "Biscuit",
+  "item.kemono_teatime.deprecated_coin": "Deprecated Coin",
+  "item.kemono_teatime.intermidiate_toolkit": "Intermediate Toolkit",
   "item.kemono_teatime.ost": "Kemono Teatime OST",
   "item.kemono_teatime.ost_disc_1": "01 - A cup of happiness",
   "item.kemono_teatime.ost_disc_1.desc": "Melodious Moments: Kemono Teatime OST - 01 - A cup of happiness",
@@ -42,6 +47,8 @@
   "item.kemono_teatime.ost_disc_8.desc": "Melodious Moments: Kemono Teatime OST - 08 - OST Disc 8",
   "item.kemono_teatime.ost_disc_9": "09 - OST Disc 9",
   "item.kemono_teatime.ost_disc_9.desc": "Melodious Moments: Kemono Teatime OST - 09 - OST Disc 9",
+  "item.kemono_teatime.superior_toolkit": "Superior Toolkit",
+  "item.kemono_teatime.vitamin_tablet": "Vitamin Tablet",
   "itemGroup.kemono_teatime.blocks": "Kemonini TeaCraft: Blocks",
   "itemGroup.kemono_teatime.misc": "Kemonini TeaCraft: Miscs",
   "logs.kemono_teatime.client": "YOU'RE USING THE EARLY ACCESS VERSION! THERE MAY HAVE SOME BUGS THAT COULD LEAD TO GAME CRASHES! PLEASE REPORT THEM TO THE DEVELOPER!",
