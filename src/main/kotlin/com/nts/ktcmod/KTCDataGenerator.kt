@@ -1,6 +1,6 @@
-package com.nts.ktcmodkotlin
+package com.nts.ktcmod
 
-import com.nts.ktcmodkotlin.item.ItemRegistries
+import com.nts.ktcmod.item.ItemRegistries
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import net.minecraft.client.data.models.BlockModelGenerators
@@ -16,7 +16,6 @@ import java.util.concurrent.CompletableFuture
 
 object KTCDataGenerator {
     private const val DISC_COUNT = 21
-
     fun gatherClientData(event: GatherDataEvent.Client) {
         event.createProvider { output -> KTCItemModelProvider(output) }
         event.createProvider { output -> KTCLanguageProvider(output, "en_us") { englishTranslations() } }
@@ -27,9 +26,12 @@ object KTCDataGenerator {
 
     private class KTCItemModelProvider(output: PackOutput) : ModelProvider(output, KTCMod.MODID) {
         override fun registerModels(blockModels: BlockModelGenerators, itemModels: ItemModelGenerators) {
-            itemModels.generateFlatItem(ItemRegistries.OST.get(), ModelTemplates.FLAT_ITEM)
+            itemModels.generateFlatItem(ItemRegistries.OST_BOX.get(), ModelTemplates.FLAT_ITEM)
             for (index in 1..DISC_COUNT) {
                 itemModels.generateFlatItem(ItemRegistries.getDisc(index).get(), ModelTemplates.FLAT_ITEM)
+            }
+            for (miscItem in ItemRegistries.KTCModItems.entries) {
+                itemModels.generateFlatItem(ItemRegistries.getMiscItem(miscItem).get(), ModelTemplates.FLAT_ITEM)
             }
         }
     }
@@ -85,12 +87,15 @@ object KTCDataGenerator {
 
     private fun englishTranslations(): Map<String, String> {
         val translations = linkedMapOf(
-            "item.${KTCMod.MODID}.ost" to "Kemono Teatime OST",
+            "item.${KTCMod.MODID}.ost_box" to "Kemono Teatime OST",
             "itemGroup.${KTCMod.MODID}.blocks" to "Kemonini TeaCraft: Blocks",
             "itemGroup.${KTCMod.MODID}.misc" to "Kemonini TeaCraft: Miscs",
             "logs.${KTCMod.MODID}.client" to "YOU'RE USING THE EARLY ACCESS VERSION! THERE MAY HAVE SOME BUGS THAT COULD LEAD TO GAME CRASHES! PLEASE REPORT THEM TO THE DEVELOPER!",
-            "logs.${KTCMod.MODID}.server" to "<infos to be filled here>"
         )
+
+        for (miscItem in ItemRegistries.KTCModItems.entries) {
+            translations["item.${KTCMod.MODID}.${miscItem.registryName}"] = englishMiscName(miscItem)
+        }
 
         for (index in 1..DISC_COUNT) {
             val discName = englishDiscName(index)
@@ -102,12 +107,15 @@ object KTCDataGenerator {
 
     private fun chineseTranslations(): Map<String, String> {
         val translations = linkedMapOf(
-            "item.${KTCMod.MODID}.ost" to "《兽娘红茶馆》原声带集",
+            "item.${KTCMod.MODID}.ost_box" to "《兽娘红茶馆》原声带集",
             "itemGroup.${KTCMod.MODID}.blocks" to "兽娘红茶馆：方块",
             "itemGroup.${KTCMod.MODID}.misc" to "兽娘红茶馆：杂项",
             "logs.${KTCMod.MODID}.client" to "您正在使用本模组的早期测试版本！如有任何bug请务必向开发者反馈！",
-            "logs.${KTCMod.MODID}.server" to "<待定文本…>"
         )
+
+        for (miscItem in ItemRegistries.KTCModItems.entries) {
+            translations["item.${KTCMod.MODID}.${miscItem.registryName}"] = chineseMiscName(miscItem)
+        }
 
         for (index in 1..DISC_COUNT) {
             val discName = chineseDiscName(index)
@@ -142,4 +150,24 @@ object KTCDataGenerator {
     private fun discSoundName(index: Int): String = "disc_music_$index"
 
     private fun discComparatorValue(index: Int): Int = (index - 1) % 15 + 1
+
+    private fun englishMiscName(item: ItemRegistries.KTCModItems): String = when (item) {
+        ItemRegistries.KTCModItems.BISCUIT -> "Biscuit"
+        ItemRegistries.KTCModItems.TOOLKIT_1 -> "Beginner's Toolkit"
+        ItemRegistries.KTCModItems.TOOLKIT_2 -> "Intermediate Toolkit"
+        ItemRegistries.KTCModItems.TOOLKIT_3 -> "Advanced Toolkit"
+        ItemRegistries.KTCModItems.TOOLKIT_4 -> "Superior Toolkit"
+        ItemRegistries.KTCModItems.TABLET -> "Vitamin Tablet"
+        ItemRegistries.KTCModItems.COIN -> "Deprecated Coin"
+    }
+
+    private fun chineseMiscName(item: ItemRegistries.KTCModItems): String = when (item) {
+        ItemRegistries.KTCModItems.BISCUIT -> "饼干"
+        ItemRegistries.KTCModItems.TOOLKIT_1 -> "新手工具包"
+        ItemRegistries.KTCModItems.TOOLKIT_2 -> "中级工具包"
+        ItemRegistries.KTCModItems.TOOLKIT_3 -> "高级工具包"
+        ItemRegistries.KTCModItems.TOOLKIT_4 -> "卓越工具包"
+        ItemRegistries.KTCModItems.TABLET -> "维生素片"
+        ItemRegistries.KTCModItems.COIN -> "废弃硬币"
+    }
 }

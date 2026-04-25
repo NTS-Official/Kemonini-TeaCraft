@@ -1,4 +1,4 @@
-package com.nts.ktcmodkotlin
+package com.nts.ktcmod
 
 import net.minecraft.client.gui.screens.Screen
 import net.neoforged.api.distmarker.Dist

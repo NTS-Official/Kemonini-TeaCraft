@@ -1,6 +1,6 @@
-package com.nts.ktcmodkotlin.sounds
+package com.nts.ktcmod.sounds
 
-import com.nts.ktcmodkotlin.KTCMod
+import com.nts.ktcmod.KTCMod
 import net.minecraft.core.registries.Registries
 import net.minecraft.sounds.SoundEvent
 import net.neoforged.bus.api.IEventBus

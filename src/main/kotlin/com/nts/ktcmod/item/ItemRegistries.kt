@@ -1,7 +1,7 @@
-package com.nts.ktcmodkotlin.item
+package com.nts.ktcmod.item
 
-import com.nts.ktcmodkotlin.KTCMod
-import com.nts.ktcmodkotlin.item.misc.ItemOST
+import com.nts.ktcmod.KTCMod
+import com.nts.ktcmod.item.misc.ItemOST
 import net.minecraft.core.registries.Registries
 import net.minecraft.resources.Identifier
 import net.minecraft.resources.ResourceKey
@@ -11,17 +11,13 @@ import net.minecraft.world.item.Rarity
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.neoforge.registries.DeferredItem
 import net.neoforged.neoforge.registries.DeferredRegister
-import java.util.function.UnaryOperator
 
 object ItemRegistries {
     @JvmField
     val ITEMS = DeferredRegister.createItems(KTCMod.MODID)
 
-    @JvmField
-    val OST = ITEMS.registerItem("ost", ::ItemOST, UnaryOperator.identity())
-
     // 这个枚举类是注册物品的一些数据的集合
-    enum class KTCModItems(val itemRegistryName: String) {
+    enum class KTCModItems(val registryName: String) {
         BISCUIT("biscuit"),
         TOOLKIT_1("beginner_toolkit"),
         TOOLKIT_2("intermidiate_toolkit"),
@@ -32,8 +28,19 @@ object ItemRegistries {
     }
 
     @JvmField
+    val OST_BOX = ITEMS.registerItem("ost_box", ::ItemOST) { properties ->
+        properties
+            .stacksTo(DEFAULT_SPECIFIC_STACKSIZE)
+            .rarity(Rarity.EPIC)
+    }
+
+    @JvmField
     val MISC_ITEMS: Map<KTCModItems, DeferredItem<Item>> = KTCModItems.entries.associateWith { item ->
-        ITEMS.registerSimpleItem(item.itemRegistryName)
+        ITEMS.registerSimpleItem(item.registryName) { properties ->
+            properties
+                .stacksTo(DEFAULT_MAX_STACKSIZE)
+                .rarity(Rarity.COMMON)
+        }
     }
 
     @JvmField
@@ -41,12 +48,9 @@ object ItemRegistries {
     init {
         for (i in 1..21) {
             val discName = discItemName(i)
-            val itemHolder = ITEMS.registerItem(
-                discName,
-                ::Item
-            ) { properties ->
+            val itemHolder = ITEMS.registerSimpleItem(discName) { properties ->
                 properties
-                    .stacksTo(1)
+                    .stacksTo(MODIFIED_STACKSIZE)
                     .rarity(Rarity.RARE)
                     .jukeboxPlayable(discSongKey(i))
             }
@@ -65,9 +69,14 @@ object ItemRegistries {
 
     private fun discItemName(index: Int): String = "ost_disc_$index"
 
-    private fun discSongKey(index: Int): ResourceKey<JukeboxSong> =
-        ResourceKey.create(
+    private fun discSongKey(index: Int): ResourceKey<JukeboxSong> {
+        return ResourceKey.create(
             Registries.JUKEBOX_SONG,
             Identifier.fromNamespaceAndPath(KTCMod.MODID, discItemName(index))
         )
+    }
+
+    private const val DEFAULT_MAX_STACKSIZE = 64
+    private const val DEFAULT_SPECIFIC_STACKSIZE = 16
+    private const val MODIFIED_STACKSIZE = 4
 }

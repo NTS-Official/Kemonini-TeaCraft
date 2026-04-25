@@ -1,8 +1,8 @@
-package com.nts.ktcmodkotlin.item.misc
+package com.nts.ktcmod.item.misc
 
-import com.nts.ktcmodkotlin.KTCMod
-import com.nts.ktcmodkotlin.KTCModConfig
-import com.nts.ktcmodkotlin.item.ItemRegistries
+import com.nts.ktcmod.KTCMod
+import com.nts.ktcmod.KTCModConfig
+import com.nts.ktcmod.item.ItemRegistries
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.util.RandomSource
 import net.minecraft.world.InteractionHand

@@ -1,6 +1,6 @@
-package com.nts.ktcmodkotlin.item
+package com.nts.ktcmod.item
 
-import com.nts.ktcmodkotlin.KTCMod
+import com.nts.ktcmod.KTCMod
 import net.minecraft.core.registries.Registries
 import net.minecraft.network.chat.Component
 import net.minecraft.world.item.CreativeModeTab
@@ -17,9 +17,10 @@ object CreativeModeTabs {
         CreativeModeTab
             .builder()
             .title(Component.translatable("itemGroup.kemono_teatime.misc"))
-            .icon { ItemRegistries.OST.get().defaultInstance }
+            .icon { ItemRegistries.OST_BOX.toStack() }
             .displayItems { _, output ->
-                output.accept(ItemRegistries.OST.get())
+                output.accept(ItemRegistries.OST_BOX.get())
+                ItemRegistries.MISC_ITEMS.values.forEach { output.accept(it.get()) }
                 ItemRegistries.DISCS.forEach { output.accept(it.get()) }
             }
             .build()
@@ -29,7 +30,7 @@ object CreativeModeTabs {
         CreativeModeTab
             .builder()
             .title(Component.translatable("itemGroup.kemono_teatime.blocks"))
-            .icon { ItemRegistries.OST.get().defaultInstance }
+            .icon { ItemRegistries.OST_BOX.toStack() }
             .withTabsBefore(KTCMOD_CREATIVE_TAB_1.id)
             .build()
     })
