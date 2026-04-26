@@ -1,5 +1,6 @@
 package com.nts.ktcmod
 
+import net.minecraft.network.chat.Component
 import net.neoforged.neoforge.common.ModConfigSpec
 
 object KTCModConfig {
@@ -11,17 +12,14 @@ object KTCModConfig {
     init {
         BUILDER.push("disc_box")
         ENABLE_PITY = BUILDER
-            .comment("config.${KTCMod.MODID}.pity1")
-            .define("enablePity", true)
+            .define("pity_enabled", true)
         PITY_THRESHOLD = BUILDER
-            .comment("config.${KTCMod.MODID}.pity2")
-            .defineInRange("pityThreshold", 16, 1, 1000)
+            .defineInRange("pity_threshold", 16, 1, 1000)
         BUILDER.pop()
 
         BUILDER.push("world_gen")
         DISABLE_WANDERING_TRADER = BUILDER
-            .comment("config.${KTCMod.MODID}.disable_trader")
-            .define("disableWanderingTrader", false)
+            .define("wanderingtrader_disabled", false)
         BUILDER.pop()
     }
 

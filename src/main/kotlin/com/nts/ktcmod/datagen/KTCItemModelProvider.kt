@@ -1,7 +1,7 @@
 package com.nts.ktcmod.datagen
 
 import com.nts.ktcmod.KTCMod
-import com.nts.ktcmod.item.ItemRegistries
+import com.nts.ktcmod.world.item.ItemRegistries
 import net.minecraft.client.data.models.BlockModelGenerators
 import net.minecraft.client.data.models.ItemModelGenerators
 import net.minecraft.client.data.models.ModelProvider

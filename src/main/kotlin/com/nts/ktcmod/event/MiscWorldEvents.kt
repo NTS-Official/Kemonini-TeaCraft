@@ -19,6 +19,7 @@ object MiscWorldEvents {
      * 处理实体加入世界事件
      * 阻止流浪商人自然生成（当配置启用时）
      */
+    @JvmStatic
     @SubscribeEvent
     fun onEntityJoinLevel(event: EntityJoinLevelEvent) {
         if (KTCModConfig.DISABLE_WANDERING_TRADER.get() && event.entity.type === EntityType.WANDERING_TRADER) {

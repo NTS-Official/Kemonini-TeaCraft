@@ -19,6 +19,7 @@ class KTCModClient(container: ModContainer?) {
     }
 
     companion object {
+        @JvmStatic
         @SubscribeEvent
         fun onClientSetup(event: FMLClientSetupEvent?) {
             // 客户端初始化

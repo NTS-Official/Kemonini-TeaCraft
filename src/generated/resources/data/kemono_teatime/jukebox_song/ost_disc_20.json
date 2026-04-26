@@ -1,8 +1,0 @@
-{
-  "comparator_output": 5,
-  "description": {
-    "translate": "item.kemono_teatime.ost_disc_20.desc"
-  },
-  "length_in_seconds": 180.0,
-  "sound_event": "kemono_teatime:disc_music_20"
-}

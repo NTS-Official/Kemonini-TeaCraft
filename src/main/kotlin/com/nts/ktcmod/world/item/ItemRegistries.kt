@@ -1,7 +1,7 @@
-package com.nts.ktcmod.item
+package com.nts.ktcmod.world.item
 
 import com.nts.ktcmod.KTCMod
-import com.nts.ktcmod.item.misc.ItemOST
+import com.nts.ktcmod.world.item.misc.ItemOST
 import net.minecraft.core.registries.Registries
 import net.minecraft.resources.Identifier
 import net.minecraft.resources.ResourceKey
@@ -17,7 +17,7 @@ object ItemRegistries {
     val ITEMS = DeferredRegister.createItems(KTCMod.MODID)
 
     // 这个枚举类是注册物品的一些数据的集合
-    enum class KTCModItems(val registryName: String, func: Function<Item.Properties, ? extends I>, properties: UnaryOperator<Item.Properties>) {
+    enum class KTCModItems(val registryName: String) {
         BISCUIT("biscuit"),
         TOOLKIT_1("beginner_toolkit"),
         TOOLKIT_2("intermidiate_toolkit"),

@@ -1,4 +1,4 @@
-package com.nts.ktcmod.item
+package com.nts.ktcmod.world.item
 
 import com.nts.ktcmod.KTCMod
 import net.minecraft.core.registries.Registries

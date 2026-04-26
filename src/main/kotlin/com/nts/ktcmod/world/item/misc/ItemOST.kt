@@ -1,8 +1,8 @@
-package com.nts.ktcmod.item.misc
+package com.nts.ktcmod.world.item.misc
 
 import com.nts.ktcmod.KTCMod
 import com.nts.ktcmod.KTCModConfig
-import com.nts.ktcmod.item.ItemRegistries
+import com.nts.ktcmod.world.item.ItemRegistries
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.util.RandomSource
 import net.minecraft.world.InteractionHand
@@ -18,17 +18,21 @@ class ItemOST(props: Properties) : Item(props) {
         val stack = player.getItemInHand(hand)
         if (!level.isClientSide) {
             val serverPlayer = player as? ServerPlayer ?: return InteractionResult.PASS
-            stack.shrink(1)
-            val count = level.random.nextInt(3) + 1
-            val selectedToGiven = if (KTCModConfig.ENABLE_PITY.get()) {
-                getRandomDiscsWithPity(serverPlayer, level, count)
-            } else {
-                getRandomDiscs(level, count)
-            }
-            for (item in selectedToGiven) {
-                val stackToGive = ItemStack(item)
-                if (!serverPlayer.inventory.add(stackToGive)) {
-                    serverPlayer.drop(stackToGive, false)
+            val useTimes = if (player.isShiftKeyDown) stack.count else 1
+            stack.shrink(useTimes)
+
+            repeat(useTimes) {
+                val count = level.random.nextInt(3) + 1
+                val selectedToGiven = if (KTCModConfig.ENABLE_PITY.get()) {
+                    getRandomDiscsWithPity(serverPlayer, level, count)
+                } else {
+                    getRandomDiscs(level, count)
+                }
+                for (item in selectedToGiven) {
+                    val stackToGive = ItemStack(item)
+                    if (!serverPlayer.inventory.add(stackToGive)) {
+                        serverPlayer.drop(stackToGive, false)
+                    }
                 }
             }
             serverPlayer.inventory.setChanged()

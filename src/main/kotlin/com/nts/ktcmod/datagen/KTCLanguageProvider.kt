@@ -1,7 +1,7 @@
 package com.nts.ktcmod.datagen
 
 import com.nts.ktcmod.KTCMod
-import com.nts.ktcmod.item.ItemRegistries
+import com.nts.ktcmod.world.item.ItemRegistries
 import com.google.gson.JsonObject
 import net.minecraft.data.CachedOutput
 import net.minecraft.data.DataProvider
@@ -30,8 +30,6 @@ class KTCLanguageProvider(
     override fun getName(): String = "Languages ($localeId)"
 
     companion object {
-        private const val DISC_COUNT = 21
-
         /**
          * 英文翻译
          */
@@ -40,19 +38,20 @@ class KTCLanguageProvider(
                 "item.${KTCMod.MODID}.ost_box" to "Kemono Teatime OST",
                 "itemGroup.${KTCMod.MODID}.blocks" to "Kemonini TeaCraft: Blocks",
                 "itemGroup.${KTCMod.MODID}.misc" to "Kemonini TeaCraft: Miscs",
-                "config.${KTCMod.MODID}.pity1" to "Enable pity system for disc box.",
-                "config.${KTCMod.MODID}.pity2" to "Number of uses without disc21 before guarantee triggers",
-                "config.${KTCMod.MODID}.disable_trader" to "Disable Wandering Trader spawn. Only affects the trader itself, not naturally spawning llamas.",
+                "config.${KTCMod.MODID}.pity_state.desc" to "Enable pity system for disc box.",
+                "config.${KTCMod.MODID}.pity_threshold.desc" to "Number of uses without disc21 before guarantee triggers",
+                "config.${KTCMod.MODID}.disable_trader" to "Disable Wandering Trader spawn.\nOnly affects the trader itself, not naturally spawning llamas.",
+                "${KTCMod.MODID}.$conf.world_gen" to "World Generations",
+                "${KTCMod.MODID}.$conf.disc_box" to "Disc Box",
             )
 
             for (miscItem in ItemRegistries.KTCModItems.entries) {
                 translations["item.${KTCMod.MODID}.${miscItem.registryName}"] = englishMiscName(miscItem)
             }
 
-            for (index in 1..DISC_COUNT) {
-                val discName = englishDiscName(index)
-                translations["item.${KTCMod.MODID}.${discItemName(index)}"] = discName
-                translations["item.${KTCMod.MODID}.${discItemName(index)}.desc"] = "Melodious Moments: Kemono Teatime OST - $discName"
+            for (disc in DiscTrack.entries) {
+                translations["item.${KTCMod.MODID}.${disc.itemName}"] = disc.displayName
+                translations["item.${KTCMod.MODID}.${disc.itemName}.desc"] = "Melodious Moments: Kemono Teatime OST - ${disc.displayName}"
             }
             return translations
         }
@@ -65,30 +64,63 @@ class KTCLanguageProvider(
                 "item.${KTCMod.MODID}.ost_box" to "《兽娘红茶馆》原声带集",
                 "itemGroup.${KTCMod.MODID}.blocks" to "兽娘红茶馆：方块",
                 "itemGroup.${KTCMod.MODID}.misc" to "兽娘红茶馆：杂项",
-                "config.${KTCMod.MODID}.pity1" to "Enable pity system for disc box.",
-                "config.${KTCMod.MODID}.pity2" to "Number of uses without disc21 before guarantee triggers",
-                "config.${KTCMod.MODID}.disable_trader" to "Disable Wandering Trader spawn. Only affects the trader itself, not naturally spawning llamas.",
+
+                "${KTCMod.MODID}.$conf.pity_state.desc" to "是否启用保底机制",
+                "${KTCMod.MODID}.$conf.pity_threshold.desc" to "触发保底的使用次数阈值",
+                "${KTCMod.MODID}.$conf.wanderingtrader_disabled" to "禁用流浪商人生成",
+                "${KTCMod.MODID}.$conf.pity_enabled" to "启用保底机制",
+                "${KTCMod.MODID}.$conf.pity_threshold" to "保底机制触发阈值",
+                "${KTCMod.MODID}.$conf.world_gen" to "世界生成",
+                "${KTCMod.MODID}.$conf.disc_box" to "抽奖机制",
+                "${KTCMod.MODID}.$conf.pity_threshold.tooltip" to "默认值：16",
+                "${KTCMod.MODID}.$conf.world_gen.tooltip" to  "此选项控制世界生成相关的机制。",
+                "${KTCMod.MODID}.$conf.pity_enabled.tooltip" to "此选项默认开启",
+                "${KTCMod.MODID}.$conf.disc_box.tooltip" to "如果你自认为你是欧皇，那么可以考虑关闭它。",
+                "${KTCMod.MODID}.$conf.disc_box.button" to "修改",
+                "${KTCMod.MODID}.$conf.wanderingtrader_disabled.tooltip" to "禁用流浪商人生成。\n不影响自然生成的羊驼。",
+                "${KTCMod.MODID}.$conf.world_gen.button" to "修改",
+                "${KTCMod.MODID}.$conf.title" to "兽娘红茶馆工艺 - 配置",
+                "${KTCMod.MODID}.$conf.section.kemono.teatime.common.toml" to "兽娘红茶馆工艺 - 配置",
+                "${KTCMod.MODID}.$conf.section.kemono.teatime.common.toml.title" to "兽娘红茶馆工艺 - 配置",
             )
 
             for (miscItem in ItemRegistries.KTCModItems.entries) {
                 translations["item.${KTCMod.MODID}.${miscItem.registryName}"] = chineseMiscName(miscItem)
             }
 
-            for (index in 1..DISC_COUNT) {
-                val discName = chineseDiscName(index)
-                translations["item.${KTCMod.MODID}.${discItemName(index)}"] = discName
-                translations["item.${KTCMod.MODID}.${discItemName(index)}.desc"] = "《兽娘红茶馆》原声带集 - $discName"
+            for (disc in DiscTrack.entries) {
+                translations["item.${KTCMod.MODID}.${disc.itemName}"] = disc.displayName
+                translations["item.${KTCMod.MODID}.${disc.itemName}.desc"] = "《兽娘红茶馆》原声带集 - ${disc.displayName}"
             }
             return translations
         }
 
-        private fun englishDiscName(index: Int): String =
-            if (index == 1) "01 - A cup of happiness" else "%02d - OST Disc %d".format(index, index)
+        private enum class DiscTrack(val index: Int, val displayName: String) {
+            DISC_1(1, "01 - a cup of happiness"),
+            DISC_2(2, "02 - Darjeeling"),
+            DISC_3(3, "03 - いつもの (my usual order)"),
+            DISC_4(4, "04 - しとしと (drizzle)"),
+            DISC_5(5, "05 - ミステリー (mystery)"),
+            DISC_6(6, "06 - 雪の日 (snowy day)"),
+            DISC_7(7, "07 - オーロラ (northern lights)"),
+            DISC_8(8, "08 - タイトル (Title)"),
+            DISC_9(9, "09 - あさのじゅんび (morning routine)"),
+            DISC_10(10, "10 - ちょうせん (new challenge)"),
+            DISC_11(11, "11 - 夜空の下で (under the night sky)"),
+            DISC_12(12, "12 - 回想 (Reminiscence)"),
+            DISC_13(13, "13 - あなたと (with you)"),
+            DISC_14(14, "14 - くすり (medicine)"),
+            DISC_15(15, "15 - 追憶 (recollection)"),
+            DISC_16(16, "16 - Betrayal"),
+            DISC_17(17, "17 - 星空を見上げて (look up to the stars)"),
+            DISC_18(18, "18 - 夢の島 (in an island of dreams)"),
+            DISC_19(19, "19 - おもいで (memproes)"),
+            DISC_20(20, "20 - Uncontrollable"),
+            DISC_21(21, "21 - みゃう・とぅー・へゔん (Mew too Heaven)");
 
-        private fun chineseDiscName(index: Int): String =
-            if (index == 1) "01 - A cup of happiness" else "%02d - OST Disc %d".format(index, index)
-
-        private fun discItemName(index: Int): String = "ost_disc_$index"
+            val itemName: String
+                get() = "ost_disc_$index"
+        }
 
         private fun englishMiscName(item: ItemRegistries.KTCModItems): String = when (item) {
             ItemRegistries.KTCModItems.BISCUIT -> "Biscuit"
@@ -109,5 +141,7 @@ class KTCLanguageProvider(
             ItemRegistries.KTCModItems.TABLET -> "维生素片"
             ItemRegistries.KTCModItems.COIN -> "废弃硬币"
         }
+
+        private val conf: String = "configuration"
     }
 }

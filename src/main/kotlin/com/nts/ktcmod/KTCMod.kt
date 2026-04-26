@@ -1,8 +1,8 @@
 package com.nts.ktcmod
 
 import com.mojang.logging.LogUtils
-import com.nts.ktcmod.item.CreativeModeTabs
-import com.nts.ktcmod.item.ItemRegistries
+import com.nts.ktcmod.world.item.CreativeModeTabs
+import com.nts.ktcmod.world.item.ItemRegistries
 import com.nts.ktcmod.sounds.SoundEvents
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.fml.ModContainer
