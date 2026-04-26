@@ -17,7 +17,7 @@ object ItemRegistries {
     val ITEMS = DeferredRegister.createItems(KTCMod.MODID)
 
     // 这个枚举类是注册物品的一些数据的集合
-    enum class KTCModItems(val registryName: String) {
+    enum class KTCModItems(val registryName: String, func: Function<Item.Properties, ? extends I>, properties: UnaryOperator<Item.Properties>) {
         BISCUIT("biscuit"),
         TOOLKIT_1("beginner_toolkit"),
         TOOLKIT_2("intermidiate_toolkit"),
