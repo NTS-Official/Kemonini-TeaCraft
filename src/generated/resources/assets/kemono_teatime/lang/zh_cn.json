@@ -65,8 +65,6 @@
   "kemono_teatime.configuration.section.kemono.teatime.common.toml": "兽娘红茶馆工艺 - 配置",
   "kemono_teatime.configuration.section.kemono.teatime.common.toml.title": "兽娘红茶馆工艺 - 配置",
   "kemono_teatime.configuration.title": "兽娘红茶馆工艺 - 配置",
-  "kemono_teatime.configuration.wanderingtrader_disabled": "禁用流浪商人生成",
-  "kemono_teatime.configuration.wanderingtrader_disabled.tooltip": "禁用流浪商人生成。\n不影响自然生成的羊驼。",
   "kemono_teatime.configuration.world_gen": "世界生成",
   "kemono_teatime.configuration.world_gen.button": "修改",
   "kemono_teatime.configuration.world_gen.tooltip": "此选项控制世界生成相关的机制。"

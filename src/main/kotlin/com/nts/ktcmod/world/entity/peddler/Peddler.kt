@@ -1,4 +1,4 @@
-package com.nts.ktcmod.entity.peddler
+package com.nts.ktcmod.world.entity.peddler
 
 import com.nts.ktcmod.world.item.ItemRegistries
 import net.minecraft.server.level.ServerLevel

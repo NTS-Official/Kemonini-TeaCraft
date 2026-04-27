@@ -1,7 +1,7 @@
 package com.nts.ktcmod
 
-import com.nts.ktcmod.entity.EntityRegistries
-import com.nts.ktcmod.entity.peddler.PeddlerRenderer
+import com.nts.ktcmod.world.entity.EntityRegistries
+import com.nts.ktcmod.world.entity.peddler.PeddlerRenderer
 import net.minecraft.client.gui.screens.Screen
 import net.neoforged.api.distmarker.Dist
 import net.neoforged.bus.api.SubscribeEvent

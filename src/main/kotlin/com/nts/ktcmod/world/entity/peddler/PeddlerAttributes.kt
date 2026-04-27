@@ -1,7 +1,7 @@
-package com.nts.ktcmod.entity.peddler
+package com.nts.ktcmod.world.entity.peddler
 
 import com.nts.ktcmod.KTCMod
-import com.nts.ktcmod.entity.EntityRegistries
+import com.nts.ktcmod.world.entity.EntityRegistries
 import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier
 import net.minecraft.world.entity.ai.attributes.Attributes

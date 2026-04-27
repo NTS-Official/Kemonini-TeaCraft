@@ -1,5 +1,4 @@
 {
-  "config.kemono_teatime.disable_trader": "Disable Wandering Trader spawn.\nOnly affects the trader itself, not naturally spawning llamas.",
   "config.kemono_teatime.pity_state.desc": "Enable pity system for disc box.",
   "config.kemono_teatime.pity_threshold.desc": "Number of uses without disc21 before guarantee triggers",
   "config.kemono_teatime.replace_trader_with_peddler": "Replace Wandering Trader with Suichi.\nWhen enabled, Wandering Traders will be replaced by Suichi and their llamas will be removed.",

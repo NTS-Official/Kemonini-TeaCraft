@@ -1,7 +1,7 @@
-package com.nts.ktcmod.entity
+package com.nts.ktcmod.world.entity
 
 import com.nts.ktcmod.KTCMod
-import com.nts.ktcmod.entity.peddler.Peddler
+import com.nts.ktcmod.world.entity.peddler.Peddler
 import net.minecraft.core.registries.Registries
 import net.minecraft.resources.Identifier
 import net.minecraft.resources.ResourceKey

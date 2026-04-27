@@ -39,7 +39,6 @@ class KTCLanguageProvider(
                 "itemGroup.${KTCMod.MODID}.misc" to "Kemonini TeaCraft: Miscs",
                 "config.${KTCMod.MODID}.pity_state.desc" to "Enable pity system for disc box.",
                 "config.${KTCMod.MODID}.pity_threshold.desc" to "Number of uses without disc21 before guarantee triggers",
-                "config.${KTCMod.MODID}.disable_trader" to "Disable Wandering Trader spawn.\nOnly affects the trader itself, not naturally spawning llamas.",
                 "config.${KTCMod.MODID}.replace_trader_with_peddler" to "Replace Wandering Trader with Suichi.\nWhen enabled, Wandering Traders will be replaced by Suichi and their llamas will be removed.",
                 "${KTCMod.MODID}.$conf.world_gen" to "World Generations",
                 "${KTCMod.MODID}.$conf.disc_box" to "Disc Box",
@@ -68,7 +67,6 @@ class KTCLanguageProvider(
 
                 "${KTCMod.MODID}.$conf.pity_state.desc" to "是否启用保底机制",
                 "${KTCMod.MODID}.$conf.pity_threshold.desc" to "触发保底的使用次数阈值",
-                "${KTCMod.MODID}.$conf.wanderingtrader_disabled" to "禁用流浪商人生成",
                 "${KTCMod.MODID}.$conf.replace_trader_with_peddler" to "用什锦替换流浪商人。\n启用后，流浪商人将被什锦替换，并移除伴随的羊驼。",
                 "${KTCMod.MODID}.$conf.pity_enabled" to "启用保底机制",
                 "${KTCMod.MODID}.$conf.pity_threshold" to "保底机制触发阈值",
@@ -79,7 +77,6 @@ class KTCLanguageProvider(
                 "${KTCMod.MODID}.$conf.pity_enabled.tooltip" to "此选项默认开启",
                 "${KTCMod.MODID}.$conf.disc_box.tooltip" to "如果你自认为你是欧皇，那么可以考虑关闭它。",
                 "${KTCMod.MODID}.$conf.disc_box.button" to "修改",
-                "${KTCMod.MODID}.$conf.wanderingtrader_disabled.tooltip" to "禁用流浪商人生成。\n不影响自然生成的羊驼。",
                 "${KTCMod.MODID}.$conf.world_gen.button" to "修改",
                 "${KTCMod.MODID}.$conf.title" to "兽娘红茶馆工艺 - 配置",
                 "${KTCMod.MODID}.$conf.section.kemono.teatime.common.toml" to "兽娘红茶馆工艺 - 配置",

@@ -4,6 +4,8 @@ import com.nts.ktcmod.KTCMod
 import com.nts.ktcmod.KTCModConfig
 import com.nts.ktcmod.world.item.ItemRegistries
 import net.minecraft.server.level.ServerPlayer
+import net.minecraft.sounds.SoundEvents
+import net.minecraft.sounds.SoundSource
 import net.minecraft.util.RandomSource
 import net.minecraft.world.InteractionHand
 import net.minecraft.world.InteractionResult
@@ -36,6 +38,16 @@ class ItemOST(props: Properties) : Item(props) {
                 }
             }
             serverPlayer.inventory.setChanged()
+            level.playSound(
+                null,
+                player.x,
+                player.y,
+                player.z,
+                SoundEvents.ITEM_PICKUP,
+                SoundSource.PLAYERS,
+                0.2F,
+                ((player.random.nextFloat() - player.random.nextFloat()) * 0.7F + 1.0F) * 2.0F
+            )
             return InteractionResult.SUCCESS_SERVER
         }
         return InteractionResult.SUCCESS

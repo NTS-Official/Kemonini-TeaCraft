@@ -3,10 +3,10 @@ package com.nts.ktcmod.event
 import com.nts.ktcmod.KTCMod
 import com.nts.ktcmod.KTCMod.Companion.LOGGER
 import com.nts.ktcmod.KTCModConfig
-import com.nts.ktcmod.entity.EntityRegistries
-import net.minecraft.core.BlockPos
+import com.nts.ktcmod.world.entity.EntityRegistries
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.world.entity.EntitySpawnReason
+import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.animal.equine.TraderLlama
 import net.minecraft.world.entity.npc.wanderingtrader.WanderingTrader
 import net.neoforged.bus.api.SubscribeEvent
@@ -21,11 +21,11 @@ object MiscWorldEvents {
     fun onEntityJoinLevel(event: EntityJoinLevelEvent) {
         val entity = event.entity
 
-        if (entity !is WanderingTrader) {
+        // Only replace vanilla wandering traders; custom subclasses (like our Peddler) must be ignored
+        // to avoid recursive replacement loops when addFreshEntity triggers this event again.
+        if (entity !is WanderingTrader || entity.type != EntityType.WANDERING_TRADER) {
             return
         }
-
-        val level = entity.level()
 
         if (entity.isPassenger || entity.isVehicle) {
             return
@@ -33,9 +33,6 @@ object MiscWorldEvents {
 
         if (KTCModConfig.REPLACE_WANDERING_TRADER_WITH_PEDDLER.get()) {
             replaceWanderingTraderWithPeddler(event, entity)
-        } else if (KTCModConfig.DISABLE_WANDERING_TRADER.get()) {
-            event.isCanceled = true
-            LOGGER.debug("Blocked Wandering Trader spawn due to config setting.")
         }
     }
 

@@ -4,7 +4,7 @@ import com.mojang.logging.LogUtils
 import com.nts.ktcmod.world.item.CreativeModeTabs
 import com.nts.ktcmod.world.item.ItemRegistries
 import com.nts.ktcmod.sounds.SoundEvents
-import com.nts.ktcmod.entity.EntityRegistries
+import com.nts.ktcmod.world.entity.EntityRegistries
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.fml.ModContainer
 import net.neoforged.fml.common.Mod

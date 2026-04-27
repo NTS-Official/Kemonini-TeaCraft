@@ -1,4 +1,4 @@
-package com.nts.ktcmod.entity.peddler
+package com.nts.ktcmod.world.entity.peddler
 
 import com.nts.ktcmod.KTCMod
 import net.minecraft.client.model.HumanoidModel
