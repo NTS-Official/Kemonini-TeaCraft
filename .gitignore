@@ -47,5 +47,4 @@ repo/
 ### Vibe Coding ###
 /.claude
 CLAUDE.md
-IMPLEMENTATION_SUMMARY.md
-WANDERING_TRADER_FEATURE.md
+AGENTS.md

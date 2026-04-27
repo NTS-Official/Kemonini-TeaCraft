@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils
 import com.nts.ktcmod.world.item.CreativeModeTabs
 import com.nts.ktcmod.world.item.ItemRegistries
 import com.nts.ktcmod.sounds.SoundEvents
+import com.nts.ktcmod.entity.EntityRegistries
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.fml.ModContainer
 import net.neoforged.fml.common.Mod
@@ -19,6 +20,7 @@ class KTCMod(modEventBus: IEventBus, modContainer: ModContainer) {
         CreativeModeTabs.register(modEventBus)
         ItemRegistries.register(modEventBus)
         SoundEvents.register(modEventBus)
+        EntityRegistries.register(modEventBus)
         modContainer.registerConfig(ModConfig.Type.COMMON, KTCModConfig.SPEC)
     }
 

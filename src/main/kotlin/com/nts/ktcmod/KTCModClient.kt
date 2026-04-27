@@ -1,11 +1,14 @@
 package com.nts.ktcmod
 
+import com.nts.ktcmod.entity.EntityRegistries
+import com.nts.ktcmod.entity.peddler.PeddlerRenderer
 import net.minecraft.client.gui.screens.Screen
 import net.neoforged.api.distmarker.Dist
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.ModContainer
 import net.neoforged.fml.common.*
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent
+import net.neoforged.neoforge.client.event.EntityRenderersEvent
 import net.neoforged.neoforge.client.gui.*
 
 @Mod(value = KTCMod.MODID, dist = [Dist.CLIENT])
@@ -22,8 +25,13 @@ class KTCModClient(container: ModContainer?) {
         @JvmStatic
         @SubscribeEvent
         fun onClientSetup(event: FMLClientSetupEvent?) {
-            // 客户端初始化
             KTCMod.LOGGER.info("Setting up client configuration for " + KTCMod.MODID + "...")
+        }
+
+        @JvmStatic
+        @SubscribeEvent
+        fun registerRenderers(event: EntityRenderersEvent.RegisterRenderers) {
+            event.registerEntityRenderer(EntityRegistries.PEDDLER.get(), ::PeddlerRenderer)
         }
     }
 }
