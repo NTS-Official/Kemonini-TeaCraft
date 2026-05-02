@@ -34,7 +34,8 @@ group = mod_group_id
 
 sourceSets.named("main") {
     resources {
-        srcDir("src/generated/resources")
+        java.srcDir("src/datagen/kotlin")
+        resources.srcDir("src/generated/resources")
         exclude("**/*.bbmodel")
         exclude("src/generated/**/.cache")
     }
