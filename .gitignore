@@ -34,7 +34,6 @@ bin/
 .DS_Store
 
 ### Minecraft Modding ###
-.tmp_neoforge/
 run/
 !**/src/**/run/
 **/src/generated/**/.cache/
